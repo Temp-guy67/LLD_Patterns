@@ -1,8 +1,7 @@
-package MeetingScheduler;
+package MeetingScheduler.domain;
 
 public class Constants {
-    public enum BookingStatus
-    {
+    public enum BookingStatus {
         ACTIVE,
         CANCELLED,
         COMPLETED

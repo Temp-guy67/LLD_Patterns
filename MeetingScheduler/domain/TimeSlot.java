@@ -1,8 +1,7 @@
-package MeetingScheduler;
+package MeetingScheduler.domain;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
-
 
 public class TimeSlot {
     private final LocalDateTime startTime;
@@ -34,8 +33,8 @@ public class TimeSlot {
             return false;
         }
         // Overlap occurs if: start1 < end2 AND start2 < end1
-        return this.startTime.isBefore(other.endTime) && 
-               other.startTime.isBefore(this.endTime);
+        return this.startTime.isBefore(other.endTime) &&
+                other.startTime.isBefore(this.endTime);
     }
 
     public LocalDateTime getStartTime() {
@@ -48,11 +47,13 @@ public class TimeSlot {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         TimeSlot timeSlot = (TimeSlot) o;
         return Objects.equals(startTime, timeSlot.startTime) &&
-               Objects.equals(endTime, timeSlot.endTime);
+                Objects.equals(endTime, timeSlot.endTime);
     }
 
     @Override

@@ -1,6 +1,8 @@
-package MeetingScheduler;
+package MeetingScheduler.domain;
 
-class MeetingRoom {
+import java.util.Objects;
+
+public class MeetingRoom {
     private final String roomId;
     private final String name;
     private final int capacity;
@@ -47,8 +49,10 @@ class MeetingRoom {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         MeetingRoom that = (MeetingRoom) o;
         return Objects.equals(roomId, that.roomId);
     }
@@ -60,7 +64,7 @@ class MeetingRoom {
 
     @Override
     public String toString() {
-        return String.format("MeetingRoom{id='%s', name='%s', capacity=%d, location='%s'}", 
-                           roomId, name, capacity, location);
+        return String.format("MeetingRoom{id='%s', name='%s', capacity=%d, location='%s'}",
+                roomId, name, capacity, location);
     }
 }

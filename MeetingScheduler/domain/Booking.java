@@ -1,6 +1,11 @@
-package MeetingScheduler;
+package MeetingScheduler.domain;
 
-class Booking {
+import java.time.LocalDateTime;
+import java.util.Objects;
+
+import MeetingScheduler.domain.Constants.BookingStatus;
+
+public class Booking {
     private final String bookingId;
     private final String employeeId;
     private final String roomId;
@@ -11,10 +16,10 @@ class Booking {
     /**
      * Constructs a Booking with ACTIVE status.
      * 
-     * @param bookingId unique identifier (auto-generated)
+     * @param bookingId  unique identifier (auto-generated)
      * @param employeeId ID of the employee making the booking
-     * @param roomId ID of the room being booked
-     * @param timeSlot time interval for the booking
+     * @param roomId     ID of the room being booked
+     * @param timeSlot   time interval for the booking
      */
 
     public Booking(String bookingId, String employeeId, String roomId, TimeSlot timeSlot) {
@@ -61,7 +66,7 @@ class Booking {
     public synchronized void cancel() {
         if (!isActive()) {
             throw new IllegalStateException(
-                "Cannot cancel booking - current status: " + status);
+                    "Cannot cancel booking - current status: " + status);
         }
         this.status = BookingStatus.CANCELLED;
     }
@@ -114,8 +119,10 @@ class Booking {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Booking booking = (Booking) o;
         return Objects.equals(bookingId, booking.bookingId);
     }
@@ -128,7 +135,7 @@ class Booking {
     @Override
     public String toString() {
         return String.format(
-            "Booking{id='%s', employee='%s', room='%s', timeSlot=%s, status=%s}", 
-            bookingId, employeeId, roomId, timeSlot, status);
+                "Booking{id='%s', employee='%s', room='%s', timeSlot=%s, status=%s}",
+                bookingId, employeeId, roomId, timeSlot, status);
     }
 }

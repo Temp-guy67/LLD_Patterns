@@ -1,6 +1,8 @@
-package MeetingScheduler;
+package MeetingScheduler.domain;
 
-class Employee {
+import java.util.Objects;
+
+public class Employee {
     private final String employeeId;
     private final String name;
     private final String email;
@@ -38,8 +40,10 @@ class Employee {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Employee employee = (Employee) o;
         return Objects.equals(employeeId, employee.employeeId);
     }
@@ -51,7 +55,7 @@ class Employee {
 
     @Override
     public String toString() {
-        return String.format("Employee{id='%s', name='%s', email='%s'}", 
-                           employeeId, name, email);
+        return String.format("Employee{id='%s', name='%s', email='%s'}",
+                employeeId, name, email);
     }
 }
